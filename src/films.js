@@ -58,20 +58,55 @@ function orderByYear(movie) {
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory(movies, genre) {
   let category = movies.filter((movie) => movie.genre == genre);
-  let averageC = category.map(el => parseFloat(el["score"])).reduce((a,b) => a+b) / category.length;
-  //33passed
+  //let omitNan = isNaN ? parseInt(Number) : alert;
+  let omitNan = category.map(el => isNaN(el["score"]) ? parseInt(0) : parseFloat(el["score"]));
+  //let omitnan =  inputsArray[0].value;  tot += isNaN(val0 || val0=="")? 0 : parseFloat(val0);
+  //let noNumbers = category.filter(el["score"] => !Number.isNaN(score));
+  let averageC = omitNan.reduce((a,b) => a+b) / category.length;
+ // let averageC = omitNan.map(el => parseFloat(el["score"]), omitNan).reduce((a,b) => a+b) / category.length;
+  //33passed no reporta amb score buit 
+ // let averageC = category.map(el => parseFloat(el["score"])).reduce((a,b) => { isNaN ? (a+b) / category.length-1 :(a+b) / category.length});
+ //if ("score" == isNaN) {return ""}
+ console.log("EXERCICE 6 ->", averageC);
   return averageC;
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes(movies, duration) {
+function hoursToMinutes(movies) {
 //let hours = movies.map({ if (duration.indexof[0] == 2){duration = 120+ duration.idexeof}};)
+let clonedMovies = JSON.parse(JSON.stringify(movies));
+return clonedMovies.map((movie) => {
 
+  let duration = movie.duration.split(' ')
+  let hour = 0
+  let min = 0
+
+  if (duration.length > 1) {
+    hour = Number(duration[0].split('h')[0])
+    min = Number(duration[1].split('min')[0])
+  } else {
+    if(duration[0].split('min').length > 1) {
+      min = Number(duration[0].split('min')[0])
+    } else {
+      hour = Number(duration[0].split('h')[0])
+    }
+  }
+
+  movie.duration = hour * 60 + min
+  return movie
+})
 }
 
+
+
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
+function bestFilmOfYear(movies, year) {
+  //let category = movies.filter((movie) => movie.genre == genre);
+  let years = movies.filter((movie) => movie.year == year);
+  let better = years.reduce((el) => Math.max(el["score"]));
+  //el => parseFloat(el["score"])
+  console.log("EXERCICE 8 ->", better);
+  return better;
 }
 
 
