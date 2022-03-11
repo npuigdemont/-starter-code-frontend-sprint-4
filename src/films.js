@@ -55,7 +55,7 @@ function moviesAverageByCategory(movies, genre) {
  console.log("EXERCICE 6 ->", averageC);
   return averageC;
 }
-
+/*
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(movies) {
 
@@ -80,7 +80,7 @@ return clonedMovies.map((movie) => {
   return movie
 })
 }
-
+*/
 
 
 // Exercise 8: Get the best film of a year
