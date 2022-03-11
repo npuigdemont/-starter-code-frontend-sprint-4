@@ -56,7 +56,7 @@ function moviesAverageByCategory(movies, genre) {
  //console.log("EXERCICE 6 ->", averageC);
   return averageC;
 }
-/*
+
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(movies) {
 
@@ -94,7 +94,7 @@ concat.push(better);
  // console.log("EXERCICE 8 ->", concat);
   return concat;
 }
-*/
+
 
 
 // The following is required to make unit tests work.
