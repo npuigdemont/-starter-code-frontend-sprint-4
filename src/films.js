@@ -49,13 +49,14 @@ function orderByYear(movie) {
 function moviesAverageByCategory(movies, genre) {
   let category = movies.filter((movie) => movie.genre == genre);
   let filteredList = category.map(peli => Number(peli.score));
+  //take out the function calculate average the score without result
   let filtered0 = filteredList.filter(Number => Number != 0);
   let averageC = filteredList.reduce((sum, score)=> sum + score ) / filtered0.length;
  
- console.log("EXERCICE 6 ->", averageC);
+ //console.log("EXERCICE 6 ->", averageC);
   return averageC;
 }
-
+/*
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(movies) {
 
@@ -93,7 +94,7 @@ concat.push(better);
  // console.log("EXERCICE 8 ->", concat);
   return concat;
 }
-
+*/
 
 
 // The following is required to make unit tests work.
