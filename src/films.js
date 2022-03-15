@@ -51,14 +51,16 @@ function orderByYear(movie) {
 function moviesAverageByCategory(movies, genre) {
   let category = movies.filter((movie) => movie.genre == genre);
   let filteredList = category.map(peli => peli.score);
-  let filteredEmpty = filteredList.filter(Number => Number != '');
+  let filteredEmpty = filteredList.filter(Number => Number != '')
+                                  .filter(Number => Number != "")
+                                  .filter(Number => Number != " ");
   let averageC = filteredList.reduce((sum, score)=> sum + score ) / filteredEmpty.length;
  
   //take out the function calculate average the score without result, **don't take the scores with value zero***
   //let filtered0 = filteredList.filter(Number => Number != 0);
   //let averageC = filteredList.reduce((sum, score)=> sum + score ) / filtered0.length;
  
- //console.log("EXERCICE 6 ->", filteredEmpty);
+ console.log("EXERCICE 6 ->", filteredEmpty);
   return averageC;
 }
 
